@@ -23,7 +23,6 @@ const biciclette=[
     }
 
 ]
-console.log(biciclette);
 
 let biciLeggera = biciclette[0];
 
@@ -34,8 +33,6 @@ for(let i=0; i<biciclette.length; i++){
         biciLeggera= thisbici;
     }
 }
-
-console.log(biciLeggera);
 
 // destrutturo per mettere i miei valori in 'variabili':
 
@@ -59,3 +56,54 @@ document.getElementById('bici').innerHTML= stampaBici;
 // 2 Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
 //  Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0. Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti.
 //  Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
+
+// Creare un array di oggetti di squadre di calcio.
+const mySquadre = [
+    {
+        nome : 'Atalanta',
+        punti_fattti : 0,
+        falli_subiti: 0
+    },
+    {
+        nome : 'Inter',
+        punti_fattti : 0,
+        falli_subiti: 0
+    },
+    {
+        nome : 'Milan',
+        punti_fattti : 0,
+        falli_subiti: 0
+    },
+    {
+        nome : 'Juventus',
+        punti_fattti : 0,
+        falli_subiti: 0
+    },
+    {
+        nome : 'Napoli',
+        punti_fattti : 0,
+        falli_subiti: 0
+    }
+]
+console.log(mySquadre);
+
+const newTeam=[]
+
+// Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti.
+for (let i=0; i< mySquadre.length;i++){
+    let thisSquadra = mySquadre[i];
+
+    thisSquadra.falli_subiti = getRndInteger(1,100);
+    thisSquadra.punti_fattti = getRndInteger(1,80);
+
+    const {nome, falli_subiti}= thisSquadra;
+    newTeam.push({nome,falli_subiti});
+}
+
+console.log(newTeam);
+
+
+// function:
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+  }
